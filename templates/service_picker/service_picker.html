@@ -1,0 +1,93 @@
+{% extends 'base_with_navigation_and_user_mgmnt.html' %}
+
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{url_for('static', path='/css/service_picker.css')}}">
+</head>
+
+
+<div id="serviceMarketplaceMainContainer" class="mainContainer">
+
+    <h1>Service Picker </h1>
+
+    <div class="contentContainer" align=left>
+        <form id="templateForm" action="{{ url_for('show_service_picker') }}" method='POST'>
+            <select name="template_selector" id="template_selector">
+                {% for template_id in template_ids %}
+                    <option value="{{ template_id }}">{{ template_id }}</option>
+                {% endfor %} 
+            </select>
+            <button id="chooseServiceTemplate" class="button" type="submit">choose service template</button>
+        </form>
+        <hr>
+
+        {% for template_id, services in service_info.items() %}
+            <div class="serviceTemplateContainer">
+                <h2>{{ template_id }}</h2>
+                {% if services|length == 0 %}
+                    no services implementing the "{{ template_id }}" template registered yet.
+                {% else %}
+                    <form id = "pairService" action="{{ url_for('pair_selected_service') }}" method="POST">
+                        {% for service in services %}
+                            <div class="serviceContainer">
+                                <div class="selectServiceRadioButtonContainer">
+                                    <!-- <input type="radio" name="service_id" id="{{ service['service_id'] }}" value="{{ service['service_id'] }}"> -->
+                                    <input type="radio" id="select_service_radio" name="service_id" value="{{ service['service_id'] }}">
+                                </div>
+                                <div class="serviceInfoContainer">
+                                    <table class="serviceInfoDisplayTable">
+                                        <tr>
+                                            <td>
+                                                <b>service name:</b>   
+                                            </td>
+                                            <td>
+                                                {{ service['name'] }}
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>
+                                                <b>description:</b>   
+                                            </td>
+                                            <td>
+                                                {{ service['description'] }}
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <b>service id:</b>   
+                                            </td>
+                                            <td>
+                                                {{ service['service_id'] }}
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <b>participant id:</b>   
+                                            </td>
+                                            <td>
+                                                {{ service['participant_id'] }}
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                </div>        
+                            </div>
+
+                        {% endfor %}
+
+                        <div align="center">
+                            <button class="button" type="submit">pair selected service</button>
+                        </div>
+                    </form>
+                {% endif %}
+
+              
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

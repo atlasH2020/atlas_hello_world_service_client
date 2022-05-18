@@ -1,0 +1,85 @@
+:root{
+    --contentContainer-width: 666px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* - - - service cart - - - */
+
+#serviceCartContainer{
+    width:200px;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    padding: 20px;
+    margin-top: 30px;
+    top: 20px;
+    float:right;
+}
+
+/* - - - display all services for templates */
+.serviceTemplateContainer{
+    border: solid black;
+    border-width: 3px 0px 0px 0px;
+    margin-top: 10px;
+    margin-bottom: 60px;
+}
+
+.serviceContainer{
+    border: 1px solid black;
+    background-color: #EEEEEE;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+
+.selectServiceRadioButtonContainer{
+    float: left;
+    /* border: 1px solid red; */
+    padding: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+
+.serviceInfoContainer{
+    /* border: 1px solid red; */
+    margin: 5px;
+}
+
+.serviceInfoDisplayTable{
+    width: 100%;
+}
+
+.serviceInfoDisplayTable tr{
+    vertical-align: top;
+}
+
+.serviceInfoDisplayTable td:first-child{
+    width: 110px;
+}
+
+.button{
+    width: 160px;
+    margin-top: 30px;
+}
+
+.button[id=chooseServiceTemplate]{
+    width: 200px;
+
+}
+
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    width: 220px;
+    height: 35px;
+    border: 2px solid #44636A;
+    border-radius: 15px;
+
+    /* box-shadow: 2px 2px 2px 2px #44636A; */
+    
+}

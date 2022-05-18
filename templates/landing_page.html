@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+  
+<div class="contentContainer" align="center">
+    <div class="loginFormContainer" align="right">
+        <form method="post" action="{{url_for('login_user')}}">
+            <p>
+            <label for="username">Username</label>
+            <input name="username" id="username" required > 
+            </p> 
+            <p>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>  
+            </p>
+            <p>
+            <div align="center">
+                <input class="button" type="submit" value="Log In">
+            </div>
+            </p>
+
+        </form>
+    </div>
+
+    <div class="flashedMessages">
+    </div>
+
+    <div class = "registrationButtonContainer">
+        <a href="{{ url_for('register_page') }}">Register</a>
+    </div>
+    <hr>
+</div>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+fastapi==0.63.0
+requests
+uvicorn
+SQLAlchemy==1.4.17
+psycopg2-binary
+jinja2==3.0.1
+passlib[argon2]
+python-multipart
+fastapi-sessions==0.2.0
+aiofiles==0.7.0

@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+
+  hello_world:
+    image: 'atlas_hello_world_service:latest'
+    restart: unless-stopped
+    ports:
+     - 8083:8083
+    environment:
+      REDIRECT_URL: 'http://localhost:8083'
+      PREFIX_URI: '/hello_world'
+      REGISTRY_CLIENT_ID: '############'
+      REGISTRY_CLIENT_SECRET: '##############'
+      CLIENT_ID: 'hello_world_service'
+      CLIENT_SECRET: 'e8ec4c29-475b-456f-b3be-aa986c0acdc7'

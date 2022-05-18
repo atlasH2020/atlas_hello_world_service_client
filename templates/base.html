@@ -1,0 +1,31 @@
+<!doctype html>
+<title>{% block title %}{% endblock %}ATLAS Hello World Client</title>
+
+<link rel="stylesheet" href="{{url_for('static', path='css/base.css')}}">
+
+<div class="content" align="center">
+  {% block header %}
+  <header>
+    <div id="header" class="header" align="left">
+      <div class="headerItem">
+        <img src="{{url_for('static', path='images/atlas-logo-03.png')}}"/>
+      </div>
+      <div class="headerItem">
+        <h1>ATLAS Hello World Client</h1>
+      </div>
+    </div>  
+  </header>
+  {% endblock %}
+
+  {% block navigation %}{% endblock %}
+
+  {% block userManagement %}{% endblock %}
+
+
+
+  {% block content %}{% endblock %}
+
+
+  
+  
+</div>

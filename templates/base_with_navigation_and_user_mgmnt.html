@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block navigation %}
+<div id="siteNavigationContainer" class="siteNavigationContainer">
+    <nav>
+    {% for nav_item in nav_items %}
+        <a href="{{ nav_item[1] }}">{{ nav_item[0] }}</a>
+    {% endfor %}
+    </nav>
+</div>
+{% endblock %}
+
+{% block userManagement %}
+<div id="userManagementContainer" class="userManagementContainer">
+    <div class="userManagementItem">
+        <a href="{{ url_for('logout') }}">log out</a>
+    </div>
+
+    <div class="userManagementItem">
+        logged in as: {{ username }}
+    </div>
+</div>
+<hr>
+{% endblock %}
