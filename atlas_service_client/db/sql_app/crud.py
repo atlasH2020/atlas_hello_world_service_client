@@ -121,6 +121,14 @@ class UserToken:
         return result
 
     @staticmethod
+    def delete_by_token_id(user_token_id: int, db: Session = SessionLocal()):
+        result = db.query(models.UserTokens).filter(models.UserTokens.user_token_id == user_token_id).first()
+        if result is not None:
+            db.delete(result)
+            db.commit()
+        db.close()
+
+    @staticmethod
     def delete(user_id: int, registration_id: int, db: Session = SessionLocal()):
         user_token = db.query(models.UserTokens).filter(models.UserTokens.user_id == user_id,
                                                         models.UserTokens.registration_id == registration_id).first()
@@ -143,6 +151,12 @@ class UserServices:
         db.close()
 
     @staticmethod
+    def get_all_by_service_id(service_id: str, db: Session = SessionLocal()):
+        result = db.query(models.UserServices).filter(models.UserServices.service_id == service_id)
+        db.close()
+        return result
+
+    @staticmethod
     def get_by_service_id(service_id: str, db: Session = SessionLocal()):
         result = db.query(models.UserServices).filter(models.UserServices.service_id == service_id).first()
         db.close()
@@ -161,6 +175,14 @@ class UserServices:
                                                       models.UserServices.service_name == service_name).first()
         db.close()
         return result
+
+    @staticmethod
+    def delete_by_service_id(service_id: str, db: Session = SessionLocal()):
+        result = db.query(models.UserServices).filter(models.UserServices.service_id == service_id).first()
+        if result is not None:
+            db.delete(result)
+            db.commit()
+        db.close()
 
     @staticmethod
     def delete(user_token_id: str, db: Session = SessionLocal()):

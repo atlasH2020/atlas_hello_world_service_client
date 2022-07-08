@@ -74,5 +74,11 @@ class PostgresServiceClientPersistence(AbstractServiceClientPersistence):
                                                    service_name=service_name, user_token_id=user_token_id)
         crud.UserServices.add(user_services)
 
+    def delete_user_services_by_service_id(self, service_id):
+        user_services = crud.UserServices.get_all_by_service_id(service_id)
+        crud.UserServices.delete_by_service_id(service_id)
+        for user_service in user_services:
+            crud.UserToken.delete_by_token_id(user_service.user_token_id)
+
     def delete_service_from_user_services(self, user_token_id):
         crud.UserServices.delete(user_token_id)
